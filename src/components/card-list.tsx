@@ -1,11 +1,5 @@
 import { useRef } from "react";
-import {
-  MasonryScroller,
-  useContainerPosition,
-  useInfiniteLoader,
-  usePositioner,
-  useResizeObserver,
-} from "masonic";
+import { MasonryScroller, useContainerPosition, usePositioner, useResizeObserver } from "masonic";
 
 import { type Link } from "@/lib/db.types";
 import { useMediaQueryColumns } from "@/hooks/use-media-query-columns";
@@ -14,8 +8,6 @@ import { useWindowSize } from "@/hooks/use-window-size";
 import NoPreviewCard from "@/components/cards/no-preview";
 import LinkPreviewCard from "@/components/cards/link-preview";
 import ImagePreviewCard from "@/components/cards/image-preview";
-import { getPosts } from "@/lib/db";
-import { auth } from "@/firebase";
 
 const CardList = ({ posts }: { posts: Link[] }) => {
   const containerRef = useRef(null);
@@ -75,17 +67,6 @@ const CardList = ({ posts }: { posts: Link[] }) => {
     return <h1>Hello</h1>;
   };
 
-  const loadMore = useInfiniteLoader(
-    (startIndex, stopIndex, currentItems) => {
-      console.log("loadMore", startIndex, stopIndex, currentItems);
-      const uid = auth.currentUser?.uid as string;
-      getPosts(uid);
-    },
-    {
-      minimumBatchSize: 20,
-    },
-  );
-
   return (
     <div className="p-2 w-full m-0 box-border animate-in zoom-in fade-in duration-300">
       <MasonryScroller
@@ -98,7 +79,6 @@ const CardList = ({ posts }: { posts: Link[] }) => {
         overscanBy={2}
         render={renderCard}
         itemKey={(item) => item.id}
-        onRender={loadMore}
       />
     </div>
   );
