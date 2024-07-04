@@ -1,17 +1,18 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { type User } from "firebase/auth";
-import { type Link } from "@/lib/db.types";
 
+import { spacesAtom } from "@/atoms/store";
 import { auth } from "@/firebase";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePost } from "@/hooks/use-post";
+import { type User } from "firebase/auth";
+import { useAtomValue } from "jotai";
 
+import PostContent from "@/components/post-content";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Skeleton } from "@/components/ui/skeleton";
-import PostContent from "@/components/post-content";
-import { spacesAtom } from "@/atoms/store";
-import { useAtomValue } from "jotai";
+
+import { type Link } from "@/lib/db.types";
 
 const Post = () => {
   const navigate = useNavigate();

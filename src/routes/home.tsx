@@ -1,8 +1,5 @@
 import { Outlet, redirect } from "react-router-dom";
 
-import CardList from "@/components/card-list";
-import { getPosts } from "@/lib/db";
-import { getUser } from "@/lib/auth";
 import {
   allPostsAtom,
   searchFetchingAtom,
@@ -11,6 +8,11 @@ import {
   store,
 } from "@/atoms/store";
 import { useAtomValue } from "jotai";
+
+import CardList from "@/components/card-list";
+
+import { getUser } from "@/lib/auth";
+import { getPosts } from "@/lib/db";
 import { Link } from "@/lib/db.types";
 
 const Home = () => {

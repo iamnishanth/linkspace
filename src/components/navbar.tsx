@@ -1,14 +1,14 @@
 import { useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
+
+import { searchFetchingAtom, searchResultAtom, searchTextAtom } from "@/atoms/store";
+import { auth } from "@/firebase";
 import { useAtom, useSetAtom } from "jotai";
 import { Search as SearchIcon } from "lucide-react";
+import { toast } from "sonner";
 
-import { auth } from "@/firebase";
-import { createPost, getSearchResult } from "@/lib/db";
-import { searchFetchingAtom, searchResultAtom, searchTextAtom } from "@/atoms/store";
-
-import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -17,9 +17,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+
+import { createPost, getSearchResult } from "@/lib/db";
 import { debounce } from "@/lib/utils";
 
 const Navbar = () => {

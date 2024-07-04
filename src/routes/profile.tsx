@@ -1,11 +1,12 @@
 import { redirect, useLoaderData, useNavigate } from "react-router-dom";
 
-import { getUser, signOut } from "@/lib/auth";
 import { type User } from "firebase/auth";
-
-import { Button } from "@/components/ui/button";
 import { LogOut, MoveLeft } from "lucide-react";
+
 import { ModeToggle } from "@/components/mode-toggle";
+import { Button } from "@/components/ui/button";
+
+import { getUser, signOut } from "@/lib/auth";
 
 const Profile = () => {
   const navigate = useNavigate();

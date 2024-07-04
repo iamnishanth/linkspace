@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useRevalidator } from "react-router-dom";
+
 import { Plus } from "lucide-react";
 
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
-import { Button } from "./ui/button";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
 import { createSpace } from "@/lib/db";
+
+import { Button } from "./ui/button";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 const CreateSpace = () => {
   const [open, setOpen] = useState(false);

@@ -1,13 +1,9 @@
 import { useCallback, useState } from "react";
+
+import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { ExternalLink, Squircle, Trash2, X } from "lucide-react";
+import { toast } from "sonner";
 
-import { Space, type Link } from "@/lib/db.types";
-
-import { Input } from "./ui/input";
-import { debounce, formatTimestamp, truncate } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { Textarea } from "./ui/textarea";
 import {
   addPostToSpace,
   addTag,
@@ -17,7 +13,11 @@ import {
   updateNotes,
   updateTitle,
 } from "@/lib/db";
-import { toast } from "sonner";
+import { type Link, Space } from "@/lib/db.types";
+import { debounce, formatTimestamp, truncate } from "@/lib/utils";
+
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -25,7 +25,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "./ui/dropdown-menu";
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 const PostContent = ({
   post,

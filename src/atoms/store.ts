@@ -1,5 +1,6 @@
-import type { Link, Space } from "@/lib/db.types";
 import { atom, createStore } from "jotai";
+
+import type { Link, Space } from "@/lib/db.types";
 
 export const allPostsAtom = atom<Link[] | null>(null);
 

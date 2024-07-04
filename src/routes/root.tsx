@@ -1,4 +1,5 @@
 import { Outlet, useNavigation } from "react-router-dom";
+
 import { Toaster } from "@/components/ui/sonner";
 
 import Loading from "./loading";

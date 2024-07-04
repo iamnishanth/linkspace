@@ -1,13 +1,14 @@
 import { redirect, useNavigate } from "react-router-dom";
 
+import { spacesAtom, store } from "@/atoms/store";
 import { auth } from "@/firebase";
+import { useAtomValue } from "jotai";
+
+import CreateSpace from "@/components/create-space";
+import { EditSpace } from "@/components/edit-space";
+
 import { getUser } from "@/lib/auth";
 import { getSpaces } from "@/lib/db";
-
-import { EditSpace } from "@/components/edit-space";
-import CreateSpace from "@/components/create-space";
-import { spacesAtom, store } from "@/atoms/store";
-import { useAtomValue } from "jotai";
 
 const Spaces = () => {
   const spaces = useAtomValue(spacesAtom);

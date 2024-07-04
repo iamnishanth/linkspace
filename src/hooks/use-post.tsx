@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import { spacesAtom, store } from "@/atoms/store";
+import { db } from "@/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 
-import { db } from "@/firebase";
-import { type Link } from "@/lib/db.types";
 import { getSpaces } from "@/lib/db";
-import { spacesAtom, store } from "@/atoms/store";
+import { type Link } from "@/lib/db.types";
 
 export const usePost = (
   uid: string,

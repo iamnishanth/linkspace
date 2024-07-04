@@ -1,9 +1,10 @@
 import { LoaderFunctionArgs, Outlet, redirect, useLoaderData } from "react-router-dom";
 
+import CardList from "@/components/card-list";
+
 import { getUser } from "@/lib/auth";
 import { getSpace, getSpacePosts } from "@/lib/db";
 import { Link, type Space as SpaceType } from "@/lib/db.types";
-import CardList from "@/components/card-list";
 
 const Space = () => {
   // TODO: read from atoms

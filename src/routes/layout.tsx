@@ -1,9 +1,10 @@
 import { Outlet, redirect, useNavigation } from "react-router-dom";
 
+import Navbar from "@/components/navbar";
+
 import { getUser } from "@/lib/auth";
 
 import Loading from "./loading";
-import Navbar from "@/components/navbar";
 
 const Layout = () => {
   const navigation = useNavigation();

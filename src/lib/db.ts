@@ -1,28 +1,29 @@
 import {
-  collection,
-  doc,
-  updateDoc,
-  arrayUnion,
-  arrayRemove,
-  serverTimestamp,
-  query,
-  where,
-  getDocs,
-  getDoc,
-  deleteDoc,
-  orderBy,
-  addDoc,
-} from "firebase/firestore";
-import type { Space, Link } from "./db.types";
-import { auth, db, storage } from "@/firebase";
-import { deleteObject, ref } from "firebase/storage";
-import {
   allPostsAtom,
   searchFetchingAtom,
   searchResultAtom,
   spacesAtom,
   store,
 } from "@/atoms/store";
+import { auth, db, storage } from "@/firebase";
+import {
+  addDoc,
+  arrayRemove,
+  arrayUnion,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+  serverTimestamp,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
+
+import type { Link, Space } from "./db.types";
 
 export const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 

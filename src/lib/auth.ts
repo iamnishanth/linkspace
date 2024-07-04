@@ -1,5 +1,5 @@
 import { auth, provider } from "@/firebase";
-import { signInWithPopup, type User } from "firebase/auth";
+import { type User, signInWithPopup } from "firebase/auth";
 
 export const getUser = async (): Promise<User | null> => {
   return new Promise((resolve, reject) => {

@@ -1,6 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { getUser, signInWithGoogle } from "@/lib/auth";
 import { redirect, useNavigate } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
+
+import { getUser, signInWithGoogle } from "@/lib/auth";
 
 const Auth = () => {
   const navigate = useNavigate();

@@ -1,13 +1,14 @@
 import { useRef } from "react";
-import { MasonryScroller, useContainerPosition, usePositioner, useResizeObserver } from "masonic";
 
-import { type Link } from "@/lib/db.types";
 import { useMediaQueryColumns } from "@/hooks/use-media-query-columns";
 import { useWindowSize } from "@/hooks/use-window-size";
+import { MasonryScroller, useContainerPosition, usePositioner, useResizeObserver } from "masonic";
 
-import NoPreviewCard from "@/components/cards/no-preview";
-import LinkPreviewCard from "@/components/cards/link-preview";
 import ImagePreviewCard from "@/components/cards/image-preview";
+import LinkPreviewCard from "@/components/cards/link-preview";
+import NoPreviewCard from "@/components/cards/no-preview";
+
+import { type Link } from "@/lib/db.types";
 
 const CardList = ({ posts }: { posts: Link[] }) => {
   const containerRef = useRef(null);

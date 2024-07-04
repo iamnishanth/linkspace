@@ -3,8 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { type ImageProperties } from "@/lib/db.types";
 
 import { AspectRatio } from "../ui/aspect-ratio";
-import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
+import { Card } from "../ui/card";
 
 type ImagePreviewCardProps = {
   id: string;

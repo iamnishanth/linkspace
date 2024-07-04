@@ -1,6 +1,8 @@
-import { type Space } from "@/lib/db.types";
-import { Badge } from "./ui/badge";
 import { Link } from "react-router-dom";
+
+import { type Space } from "@/lib/db.types";
+
+import { Badge } from "./ui/badge";
 
 const NavSpaces = ({ spaces }: { spaces: Space[] }) => {
   return (

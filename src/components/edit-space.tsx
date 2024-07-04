@@ -1,12 +1,15 @@
+import { useRef, useState } from "react";
+import { useRevalidator } from "react-router-dom";
+
 import { Pencil } from "lucide-react";
+
+import { deleteSpace, updateSpaceName } from "@/lib/db";
+import { Space } from "@/lib/db.types";
+
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Space } from "@/lib/db.types";
-import { useRef, useState } from "react";
-import { deleteSpace, updateSpaceName } from "@/lib/db";
-import { useRevalidator } from "react-router-dom";
 
 export const EditSpace = ({ space }: { space: Space }) => {
   const [open, setOpen] = useState(false);
