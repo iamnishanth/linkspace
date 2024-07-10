@@ -15,7 +15,7 @@ const Layout = () => {
     <main className="relative min-h-[100dvh]">
       <Navbar />
       {navigation.state === "loading" ? <Loading className="h-[calc(100vh-5rem)]" /> : <Outlet />}
-      <footer className="fixed bottom-0 md:hidden h-20 w-full border-t flex items-center justify-evenly">
+      <footer className="fixed bottom-0 md:hidden h-20 w-full border-t flex items-center justify-evenly bg-background">
         <NavLink
           to="/"
           className="flex flex-col items-center justify-center gap-2 text-xs w-20 text-muted-foreground [&.active]:text-foreground"

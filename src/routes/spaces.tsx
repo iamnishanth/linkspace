@@ -18,11 +18,11 @@ const Spaces = () => {
     return (
       <div className="mt-4">
         <div className="flex items-center justify-between gap-4 h-20 mb-4">
-          <h1 className="text-3xl">{auth.currentUser?.displayName + "'s Spaces"}</h1>
+          <h1 className="text-xl md:text-3xl">{auth.currentUser?.displayName + "'s Spaces"}</h1>
           <CreateSpace />
         </div>
         <div className="flex items-center justify-center h-[50vh]">
-          <h1 className="text-3xl">No space found</h1>
+          <h1 className="text-xl md:text-3xl">No space found</h1>
         </div>
       </div>
     );
@@ -34,7 +34,7 @@ const Spaces = () => {
   return (
     <div className="mt-4">
       <div className="flex items-center justify-between gap-4 h-20 mb-4">
-        <h1 className="text-3xl">{auth.currentUser?.displayName + "'s Spaces"}</h1>
+        <h1 className="text-xl md:text-3xl">{auth.currentUser?.displayName + "'s Spaces"}</h1>
         <CreateSpace />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

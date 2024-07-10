@@ -69,7 +69,7 @@ const CardList = ({ posts }: { posts: Link[] }) => {
   };
 
   return (
-    <div className="p-2 w-full m-0 box-border animate-in zoom-in fade-in duration-300">
+    <div className="p-2 w-full m-0 box-border animate-in zoom-in fade-in duration-300 pb-20 md:pb-2">
       <MasonryScroller
         positioner={positioner}
         resizeObserver={resizeObserver}

@@ -13,7 +13,7 @@ const Auth = () => {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-4">
+    <main className="min-h-[100dvh] flex flex-col items-center justify-center gap-4">
       <div className="flex flex-col items-center justify-center gap-1">
         <h1 className="text-lg">link_space</h1>
         <p className="text-sm">minimalistic link organizer</p>

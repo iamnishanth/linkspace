@@ -44,7 +44,7 @@ export const EditSpace = ({ space }: { space: Space }) => {
           </Label>
           <Input id="name" defaultValue={space.name} ref={nameRef} />
         </div>
-        <DialogFooter className="sm:justify-end">
+        <DialogFooter className="sm:justify-end gap-2">
           <Button type="button" variant="destructive" onClick={onDeleteSpace}>
             Delete Space
           </Button>

@@ -30,14 +30,16 @@ const Profile = () => {
         </Button>
       </div>
       <div className="mt-40">
-        <h1 className="text-3xl font-extrabold text-center">Hello, {user.displayName}</h1>
-        <div className="flex flex-col gap-4 mt-8 items-center">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-center">
+          Hello, {user.displayName}
+        </h1>
+        <div className="flex flex-col gap-4 mt-4 items-center">
           <section className="flex gap-2 items-center">
             <h4>Your email:</h4>
-            <p className="text-lg">{user.email}</p>
+            <p className="text-sm md:text-lg">{user.email}</p>
           </section>
           <section className="flex gap-2 items-center">
-            <h4>Appearance:</h4>
+            <h4 className="text-sm md:text-md">Appearance:</h4>
             <ModeToggle />
           </section>
           <Button
