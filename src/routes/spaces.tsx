@@ -42,7 +42,7 @@ const Spaces = () => {
           spaces.map((space) => (
             <div key={`${space.id}`} onClick={() => handleNavigate(space.id)}>
               <div className="h-36 sm:h-56 border rounded-lg flex items-center justify-center cursor-pointer select-none hover:ring-2 hover:ring-ring ring-offset-background ring-offset-2 relative group">
-                <h1 className="text-xl max-w-full p-4 overflow-hidden text-ellipsis whitespace-nowrap lowercase">
+                <h1 className="text-xl max-w-full p-4 overflow-hidden text-ellipsis whitespace-nowrap">
                   {space.name}
                 </h1>
                 <div
