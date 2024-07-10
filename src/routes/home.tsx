@@ -42,13 +42,11 @@ const Home = () => {
       <div className="container mt-2">
         {postsToDisplay?.length === 0 && (
           <div className="flex flex-col gap-4 items-center justify-center h-[70vh]">
-            <h1 className="text-3xl">
+            <h1 className="text-2xl text-center">
               {searchTerm ? "No results found" : "It looks empty here. 🤔"}
             </h1>
             <p className="text-center">
-              {searchTerm
-                ? "Try searching for something else"
-                : `Try adding some post by clicking "Create" at the top right!`}
+              {searchTerm ? "Try searching for something else" : `Add some links to get started!`}
             </p>
           </div>
         )}

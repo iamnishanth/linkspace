@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { searchFetchingAtom, searchResultAtom, searchTextAtom } from "@/atoms/store";
 import { auth } from "@/firebase";
 import { useAtom, useSetAtom } from "jotai";
-import { Search as SearchIcon } from "lucide-react";
+import { Plus, Search as SearchIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -42,7 +42,7 @@ const Profile = () => {
   const displayName = user?.displayName as string;
 
   return (
-    <NavLink className="flex items-center" to="/profile">
+    <NavLink className="hidden md:flex items-center" to="/profile">
       <Avatar className="cursor-pointer h-8 w-8">
         <AvatarImage src={profilePhoto} alt={displayName} />
         <AvatarFallback>{displayName.charAt(0)}</AvatarFallback>
@@ -72,7 +72,7 @@ const Search = () => {
       <div className="relative w-full">
         <SearchIcon className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder="search your links & images"
+          placeholder="Search your links & images"
           className="pl-8 focus-visible:ring-1"
           value={searchText}
           onChange={handleSearch}
@@ -84,17 +84,17 @@ const Search = () => {
 
 const NavLinks = () => {
   return (
-    <div className="items-center gap-4 text-sm lg:gap-6 hidden md:flex">
+    <div className="flex justify-end items-center gap-4 lg:gap-6 text-sm">
       <NavLink
         to="/"
-        className="text-foreground/60 hover:text-foreground/80 [&.active]:text-foreground/80 [&.active]:underline [&.active]:underline-offset-8 lowercase"
+        className="text-foreground/60 hover:text-foreground/80 [&.active]:text-foreground/80 [&.active]:underline [&.active]:underline-offset-8 hidden md:block"
         state="no-root-loading-indicator"
       >
         All
       </NavLink>
       <NavLink
         to="/spaces"
-        className="text-foreground/60 hover:text-foreground/80 [&.active]:text-foreground/80 [&.active]:underline [&.active]:underline-offset-8 lowercase"
+        className="text-foreground/60 hover:text-foreground/80 [&.active]:text-foreground/80 [&.active]:underline [&.active]:underline-offset-8 hidden md:block"
         state="no-root-loading-indicator"
       >
         Spaces
@@ -144,12 +144,15 @@ const CreatePost = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <p
-        className="text-foreground/60 hover:text-foreground/80 [&.active]:text-foreground/80 [&.active]:underline [&.active]:underline-offset-8 cursor-pointer lowercase"
+      <Button
+        size="sm"
+        variant="outline"
         onClick={() => setOpen(true)}
+        className="ml-2 md:ml-0 gap-2"
       >
-        Create
-      </p>
+        <Plus size={14} />
+        <span className="hidden md:inline">Create</span>
+      </Button>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Add link</DialogTitle>
@@ -164,17 +167,18 @@ const CreatePost = () => {
               placeholder="https://example.com/"
               value={link}
               onChange={(e) => setLink(e.target.value)}
+              autoComplete="off"
             />
           </div>
         </form>
-        <DialogFooter className="sm:justify-end">
+        <DialogFooter className="sm:justify-end gap-2">
           <DialogClose asChild>
             <Button type="button" variant="secondary">
               Close
             </Button>
           </DialogClose>
           <Button type="submit" onClick={onAddLink}>
-            Add
+            Add Link
           </Button>
         </DialogFooter>
       </DialogContent>
