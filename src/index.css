@@ -9,14 +9,17 @@
   font-display: swap;
   font-weight: 400;
   src:
-    url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff2)
-      format("woff2"),
-    url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff)
-      format("woff");
+    url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff2) format("woff2"),
+    url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff) format("woff");
 }
 
 body {
   --font-sans: "Geist Mono";
+}
+
+body,
+#root {
+  @apply min-h-screen;
 }
 
 .font-sans {
