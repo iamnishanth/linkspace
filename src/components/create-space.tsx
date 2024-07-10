@@ -31,29 +31,30 @@ const CreateSpace = () => {
     <Dialog open={open} onOpenChange={setOpen}>
       <Button variant="secondary" className="flex gap-2" onClick={() => setOpen(true)}>
         <Plus size={16} />
-        new space
+        New space
       </Button>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>create space</DialogTitle>
+          <DialogTitle>Create space</DialogTitle>
         </DialogHeader>
         <form className="flex items-center gap-4" onSubmit={handleCreateSpace}>
           <Label htmlFor="name" className="text-left">
-            name
+            Name
           </Label>
           <Input
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="enter name here"
+            placeholder="Enter space name here"
+            autoComplete="off"
           />
         </form>
         <DialogFooter className="sm:justify-end">
           <Button type="button" variant="outline" onClick={() => setOpen(false)}>
-            cancel
+            Cancel
           </Button>
           <Button type="submit" onClick={handleCreateSpace}>
-            create
+            Create
           </Button>
         </DialogFooter>
       </DialogContent>
