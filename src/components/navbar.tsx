@@ -124,18 +124,10 @@ const CreatePost = () => {
       return;
     }
 
-    const post = createPost({
+    createPost({
       url: link,
       type: "link",
       uid: auth.currentUser?.uid as string,
-    });
-
-    toast.promise(post, {
-      loading: "Adding your link...",
-      success: () => {
-        return "Added your link successfully";
-      },
-      error: "Error adding your link",
     });
 
     setLink("");

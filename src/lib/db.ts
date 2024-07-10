@@ -22,6 +22,7 @@ import {
   where,
 } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
+import { toast } from "sonner";
 
 import type { Link, Space } from "./db.types";
 
@@ -305,6 +306,7 @@ export const createPost = async (config: {
   uid: string;
 }) => {
   try {
+    const loadingToast = toast.loading("Adding your link...");
     const idToken = await auth.currentUser?.getIdToken();
     if (!idToken) throw Error("Failed to get id token");
 
@@ -318,15 +320,19 @@ export const createPost = async (config: {
     };
 
     const response = await fetch(SERVER_URL + "/api/post/save-post", requestPayload);
+    toast.dismiss(loadingToast);
+
     if (!response.ok) throw Error("Failed to create post");
 
     const post = (await response.json()) as Link;
     const postsFromAtom = store.get(allPostsAtom);
     if (postsFromAtom) store.set(allPostsAtom, [post, ...postsFromAtom]);
+    toast.success("Added your link successfully");
 
     return post;
   } catch (e) {
     console.log(e);
+    toast.error("Error adding your link");
     return null;
   }
 };
