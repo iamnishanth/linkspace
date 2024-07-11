@@ -192,7 +192,7 @@ const PostContent = ({
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
-                  <DropdownMenuLabel>add to spaces</DropdownMenuLabel>
+                  <DropdownMenuLabel>Add to spaces</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   {spaces.map((space) => (
                     <DropdownMenuCheckboxItem
