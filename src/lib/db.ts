@@ -419,13 +419,18 @@ export const getSearchResult = async (searchTerm: string) => {
   const uid = auth.currentUser?.uid;
   const lowercaseSearchTerm = searchTerm.toLowerCase();
 
-  const q = query(
-    collection(db, "posts"),
-    where("user_id", "==", uid),
-    where("title_lower", ">=", lowercaseSearchTerm),
-    where("title_lower", "<=", lowercaseSearchTerm + "\uf8ff"),
-    orderBy("created_at", "desc"),
-  );
+  const queries = [where("user_id", "==", uid)];
+
+  if (lowercaseSearchTerm.startsWith("#")) {
+    queries.push(where("tags", "array-contains", lowercaseSearchTerm.replace("#", "")));
+  } else {
+    queries.push(
+      where("title_lower", ">=", lowercaseSearchTerm),
+      where("title_lower", "<=", lowercaseSearchTerm + "\uf8ff"),
+    );
+  }
+
+  const q = query(collection(db, "posts"), ...queries, orderBy("created_at", "desc"));
 
   try {
     const querySnapshot = await getDocs(q);
